@@ -1,8 +1,19 @@
+using Education.Infrastructure.StartupSettings;
+using Education.Persistence.Context;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+#region context
+Bootstrapper.Bootstrap(builder.Services, connectionString: builder.Configuration.GetConnectionString("EducationConnection"));
+//builder.Services.AddDbContext<EducationContext>(options =>
+//{
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+//});
+#endregion
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

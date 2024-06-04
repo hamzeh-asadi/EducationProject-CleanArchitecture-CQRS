@@ -7,7 +7,7 @@ namespace Education.Domain.Entrities.UserAggregation
     {
         // Composite primary key
         public long Id { get; set; }
-        public int UserId { get; set; }
+        public long UserId { get; set; }
         public int RoleId { get; set; }
 
         #region Navigation properties
